@@ -52,4 +52,4 @@ Below are the details for using the code<br />
 ### **Image grid**
 <hr/>
 
-<img src = ./data/sample_images/Sample_grid.png>
+<img src = './data/sample_images/Sample_grid.png'>

@@ -2,6 +2,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class Net(nn.Module):
+    '''
+    Define the model architecture
+    '''
     #This defines the structure of the NN.
     def __init__(self):
         super(Net, self).__init__()
