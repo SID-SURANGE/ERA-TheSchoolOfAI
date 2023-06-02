@@ -1,6 +1,6 @@
 # ERA-TheSchoolOfAI
  
-The aim of this repository is to define a neural net architecture, which is to be trained with MNIST Dataset. 
+The repository aims at defining a neural net architecture, which is to be trained with MNIST Dataset using Pytorch Framework. 
 
 
 ### **Usage details**
@@ -10,7 +10,7 @@ Below are the details for using the code<br />
 - Clone the repository
 - Using in Local
     1. Check if system has dedicated graphics card to support GPU training
-    2. Verify python environment exist with support for Jupyter notebook, Pytorch
+    2. Verify python > 3.9 environment exist with support for Jupyter notebook, Pytorch
     3. If all exists, open the notebook and run the cells in order
 - Using in Colab
     1. Load the .ipynb file into colab, the model.py and utils.py also
@@ -48,3 +48,8 @@ Below are the details for using the code<br />
 - Learning rate - 0.01 with LR scheduler
 - Batch size - 512 (depends on device where this model gets executed)
 
+
+### **Image Sample**
+<hr/>
+
+![Sample](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtvaqtuhUyg9hU2XBm7yhM9LgRYB8xR3Ebzza12nPO43jvIbzncsjhlUBf3LT5EP-PQZo&usqp=CAU)
