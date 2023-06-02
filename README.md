@@ -46,7 +46,7 @@ Below are the details for using the code<br />
 - Total parameters - 593,200
 - Optimizer - SGD (Stochastic gradient descent)
 - Learning rate - 0.01 with LR scheduler
-- Batch size - 512 (depends on device where this model gets executed)
+- Batch size - 512/256/128/64/32 (depends on device where this model gets executed)
 
 
 ### **Image Sample**

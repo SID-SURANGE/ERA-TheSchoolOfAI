@@ -6,8 +6,8 @@ from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
 
 
-# CODE BLOCK 3
-class Transform():
+# CODE BLOCK 3 + 4
+class Dataset():
     """
     This class defines the train/test transforms for our CNN model for MNIST dataset
     """
@@ -26,11 +26,11 @@ class Transform():
             transforms.Normalize((0.1307,), (0.3081,))
             ])
 
-    def train_transform(self):
-        return self.train_transforms
+    def train_data(self):
+        return datasets.MNIST('../data', train=True, download=True, transform=self.train_transforms)
 
-    def test_transform(self):
-        return self.test_transforms
+    def test_data(self):
+        return datasets.MNIST('../data', train=False, download=True, transform=self.test_transforms)
 
 
 class Utility():
@@ -66,15 +66,3 @@ class Utility():
           plt.xticks([])
           plt.yticks([])
 
-
-    # CODE BLOCK 9 Loss/Accuract plot
-    def plot_loss_accuracy(self,train_losses,train_acc,test_losses,test_acc):
-          fig, axs = plt.subplots(2,2,figsize=(15,10))
-          axs[0, 0].plot(train_losses)
-          axs[0, 0].set_title("Training Loss")
-          axs[1, 0].plot(train_acc)
-          axs[1, 0].set_title("Training Accuracy")
-          axs[0, 1].plot(test_losses)
-          axs[0, 1].set_title("Test Loss")
-          axs[1, 1].plot(test_acc)
-          axs[1, 1].set_title("Test Accuracy")
