@@ -21,18 +21,35 @@ Below are the details for using the code<br />
 ### **Dataset details**
 <hr/>
 
-- Dataset Size - 
+- Dataset Size - Total images - 70000
+    1. Train images - 60000
+    2. Test images - 10000
 - Image profile -
-    1. Size - 
-    2. Grayscale
-- Dataset source - 
+    1. Size - 1x28x28 (Channel x Width x Height)
+    2. Grayscale - single channel
+- Dataset source - https://pytorch.org/vision/main/generated/torchvision.datasets.MNIST.html
 
 
 ### **Architecture details**
 <hr/>
 
-- Model layers - 
-- Total parameters - 
-- Optimizer - 
-- Learning rate - 
-- Batch size
+- Model architecture - 
+
+        Layer (type)               Output Shape         Param #
+            Conv2d-1           [-1, 32, 26, 26]             320
+            Conv2d-2           [-1, 64, 24, 24]          18,496
+            Conv2d-3          [-1, 128, 10, 10]          73,856
+            Conv2d-4            [-1, 256, 8, 8]         295,168
+            Linear-5                   [-1, 50]         204,850
+            Linear-6                   [-1, 10]             510
+
+- Total parameters - 593,200
+- Optimizer - SGD (Stochastic gradient descent)
+- Learning rate - 0.01 with LR scheduler
+- Batch size - 512 (depends on device where this model gets executed)
+
+
+### **Image grid**
+<hr/>
+
+<img src = ./data/sample_images/Sample_grid.png>
