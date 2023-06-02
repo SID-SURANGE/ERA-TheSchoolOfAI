@@ -48,11 +48,3 @@ Below are the details for using the code<br />
 - Learning rate - 0.01 with LR scheduler
 - Batch size - 512 (depends on device where this model gets executed)
 
-
-### **Image grid**
-<hr/>
-
-<img src = './data/sampleImages/Samplegrid.png'/>
-
-
-![alttxt]("https://github.com/SID-SURANGE/ERA-TheSchoolOfAI/blob/main/data/sampleImages/sampleimages.JPG")
