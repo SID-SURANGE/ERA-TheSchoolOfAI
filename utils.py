@@ -38,7 +38,6 @@ class Utility():
     This class contains utility functions for our CNN model for MNIST dataset
     1) Verify cuda presence and set device to cuda if available
     2) Plot sample images from the train data
-    3) Plot the loss/acc from the training 
     """
 
     # CODE BLOCK 2
