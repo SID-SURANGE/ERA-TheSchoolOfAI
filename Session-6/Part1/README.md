@@ -1,7 +1,8 @@
 # Session 6 Part1 - ERA-TheSchoolOfAI
 
 ### **Sample model architecture**
-![lrone](/Session-6/Part1/images/sample_model.png)
+
+![lrone](./images/sample_model.png)
 
 
 <p>
@@ -69,7 +70,8 @@ Below steps show the weight updation process using backpropagation
 <hr>
 
 ### **Initial weights as per excel**
-![lrone](/Session-6/Part1/images/initial_weights.jpg)
+
+![lrone1](./images/initial_weights.jpg)
 
 
 
@@ -79,25 +81,25 @@ Below steps show the weight updation process using backpropagation
 
 
 ### **Loss Curve at LR = 0.1**
-![lrone](/Session-6/Part1/images/lr_point1.png)
+![lrone11](./images/lr_point1.png)
 
 
 ### **Loss Curve at LR = 0.2**
-![lrone](/Session-6/Part1/images/lr_point2.png)
+![lrone](./images/lr_point2.png)
 
 
 ### **Loss Curve at LR = 0.5**
-![lrone](/Session-6/Part1/images/lr_point5.png)
+![lrone](./images/lr_point5.png)
 
 
 ### **Loss Curve at LR = 0.8**
-![lrone](/Session-6/Part1/images/lr_point8.png)
+![lrone](./images/lr_point8.png)
 
 
 ### **Loss Curve at LR = 1.0**
-![lrone](/Session-6/Part1/images/lr_one.png)
+![lrone](./images/lr_one.png)
 
 
 ### **Loss Curve at LR = 2.0**
-![lrone](/Session-6/Part1/images/lr_two.png)
+![lrone](./images/lr_two.png)
 
