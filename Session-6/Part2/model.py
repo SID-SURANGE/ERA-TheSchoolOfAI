@@ -13,32 +13,37 @@ class Net(nn.Module):
 
         self.conv1 = nn.Conv2d(1, 8, 3, bias=False)      # OUT = 26
         self.bn1   = nn.BatchNorm2d(8)
+        self.drop1 = nn.Dropout(0.05)
         self.conv2 = nn.Conv2d(8, 16, 3, bias=False)     # OUT = 24
         self.bn2   = nn.BatchNorm2d(16)
-        self.drop1 = nn.Dropout(0.15)
+        self.drop2 = nn.Dropout(0.15)
 
         self.pool1 = nn.MaxPool2d(2, 2)                  # OUT = 12
 
         self.conv3 = nn.Conv2d(16, 8, 1, bias=False)     # OUT = 12
         self.bn3   = nn.BatchNorm2d(8)
+        self.drop3 = nn.Dropout(0.05)
         self.conv4 = nn.Conv2d(8, 16, 3, bias=False)     # OUT = 10
         self.bn4   = nn.BatchNorm2d(16)
-        self.drop2 = nn.Dropout(0.15)
+        self.drop4 = nn.Dropout(0.15)
 
         self.pool2 = nn.MaxPool2d(2, 2)                  # OUT = 5
 
-        self.conv5 = nn.Conv2d(16, 16, 1, bias=False)    # OUT = 5
-        self.bn5   = nn.BatchNorm2d(16)
-        self.conv6 = nn.Conv2d(16, 10, 3, bias=False)    # OUT = 3
+        self.conv5 = nn.Conv2d(16, 12, 1, bias=False)    # OUT = 5
+        self.bn5   = nn.BatchNorm2d(12)
+        self.drop5 = nn.Dropout(0.05)
+        self.conv6 = nn.Conv2d(12, 10, 3, padding = 1, bias=False)    # OUT = 5
+        self.bn6   = nn.BatchNorm2d(10)
+        self.conv7 = nn.Conv2d(10, 10, 3, bias=False)    # OUT = 3
         
         self.gap1  = nn.AvgPool2d(kernel_size=3)         # OUT = 1
 
     def forward(self, x):
-        x = self.drop1(self.bn2(F.relu(self.conv2(self.bn1(F.relu(self.conv1(x)))))))
+        x = self.drop2(self.bn2(F.relu(self.conv2(self.drop1(self.bn1(F.relu(self.conv1(x))))))))
         x = self.pool1(x)
-        x = self.drop2(self.bn4(F.relu(self.conv4(self.bn3(F.relu(self.conv3(x)))))))
+        x = self.drop4(self.bn4(F.relu(self.conv4(self.drop3(self.bn3(F.relu(self.conv3(x))))))))
         x = self.pool2(x)
-        x = F.relu(self.conv6(self.bn5(F.relu(self.conv5(x)))))
+        x = F.relu(self.conv7(self.bn6(F.relu(self.conv6(self.drop5(self.bn5(F.relu(self.conv5(x)))))))))
         x = self.gap1(x)
         x = x.view(-1, 10)
         return F.log_softmax(x, dim=1)

@@ -61,13 +61,41 @@ Below are the details for using the code<br />
         Non-trainable params: 0
 
 - Total parameters - 4328
-- Epochs - 15
-- Optimizer - SGD (Stochastic gradient descent)
-- Learning rate - 0.04 with LR scheduler
-- Batch size - 512/256/128/64/32 (depends on device where this model gets executed)
 
 
-### **Image Sample**
+### **Training results**
 <hr/>
 
-![Sample](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtvaqtuhUyg9hU2XBm7yhM9LgRYB8xR3Ebzza12nPO43jvIbzncsjhlUBf3LT5EP-PQZo&usqp=CAU)
+- Epochs - 15
+- Optimizer - SGD (Stochastic gradient descent)
+- Learning rate - 0.08 with LR scheduler
+- Batch size - 256 (depends on device where this model gets executed)
+
+- Last 4 epochs training - 
+
+        Adjusting learning rate of group 0 to 8.0000e-03.
+        Epoch 12
+        Train: Loss=0.1224 Batch_id=234 Accuracy=98.54: 100%|██████████| 235/235 [00:13<00:00, 17.21it/s]
+        Test set: Average loss: 0.0289, Accuracy: 9912/10000 (99.12%)
+
+        Adjusting learning rate of group 0 to 8.0000e-03.
+        Epoch 13
+        Train: Loss=0.0277 Batch_id=234 Accuracy=98.49: 100%|██████████| 235/235 [00:13<00:00, 16.92it/s]
+        Test set: Average loss: 0.0279, Accuracy: 9914/10000 (99.14%)
+
+        Adjusting learning rate of group 0 to 8.0000e-03.
+        Epoch 14
+        Train: Loss=0.1069 Batch_id=234 Accuracy=98.56: 100%|██████████| 235/235 [00:13<00:00, 17.00it/s]
+        Test set: Average loss: 0.0273, Accuracy: 9916/10000 (99.16%)
+
+        Adjusting learning rate of group 0 to 8.0000e-03.
+        Epoch 15
+        Train: Loss=0.0166 Batch_id=234 Accuracy=98.59: 100%|██████████| 235/235 [00:13<00:00, 16.92it/s]
+        Test set: Average loss: 0.0285, Accuracy: 9914/10000 (99.14%)
+
+        Adjusting learning rate of group 0 to 8.0000e-03.
+
+
+- Last epoch results - 
+  - **Train accuracy** - 98.59%
+  - **Test accuracy** - 99.14%
