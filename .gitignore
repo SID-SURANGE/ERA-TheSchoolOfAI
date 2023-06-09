@@ -154,3 +154,4 @@ cython_debug/
 gitattributes
 
 data/MNIST/
+Session-6/data/
