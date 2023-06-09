@@ -38,29 +38,32 @@ Below are the details for using the code<br />
 - Model architecture - 
 
 
-        Layer (type)               Output Shape         Param #
+         Layer (type)               Output Shape         Param #
             Conv2d-1            [-1, 8, 26, 26]              72
        BatchNorm2d-2            [-1, 8, 26, 26]              16
-            Conv2d-3           [-1, 16, 24, 24]           1,152
-       BatchNorm2d-4           [-1, 16, 24, 24]              32
-           Dropout-5           [-1, 16, 24, 24]               0
-         MaxPool2d-6           [-1, 16, 12, 12]               0
-            Conv2d-7            [-1, 8, 12, 12]             128
-       BatchNorm2d-8            [-1, 8, 12, 12]              16
-            Conv2d-9           [-1, 16, 10, 10]           1,152
-      BatchNorm2d-10           [-1, 16, 10, 10]              32
-          Dropout-11           [-1, 16, 10, 10]               0
-        MaxPool2d-12             [-1, 16, 5, 5]               0
-           Conv2d-13             [-1, 16, 5, 5]             256
-      BatchNorm2d-14             [-1, 16, 5, 5]              32
-           Conv2d-15             [-1, 10, 3, 3]           1,440
-        AvgPool2d-16             [-1, 10, 1, 1]               0
-
-        Total params: 4,328
-        Trainable params: 4,328
+           Dropout-3            [-1, 8, 26, 26]               0
+            Conv2d-4           [-1, 16, 24, 24]           1,152
+       BatchNorm2d-5           [-1, 16, 24, 24]              32
+           Dropout-6           [-1, 16, 24, 24]               0
+         MaxPool2d-7           [-1, 16, 12, 12]               0
+            Conv2d-8            [-1, 8, 12, 12]             128
+       BatchNorm2d-9            [-1, 8, 12, 12]              16
+          Dropout-10            [-1, 8, 12, 12]               0
+           Conv2d-11           [-1, 16, 10, 10]           1,152
+      BatchNorm2d-12           [-1, 16, 10, 10]              32
+          Dropout-13           [-1, 16, 10, 10]               0
+        MaxPool2d-14             [-1, 16, 5, 5]               0
+           Conv2d-15             [-1, 12, 5, 5]             192
+      BatchNorm2d-16             [-1, 12, 5, 5]              24
+          Dropout-17             [-1, 12, 5, 5]               0
+           Conv2d-18             [-1, 10, 5, 5]           1,080
+      BatchNorm2d-19             [-1, 10, 5, 5]              20
+           Conv2d-20             [-1, 10, 3, 3]             900
+        AvgPool2d-21             [-1, 10, 1, 1]               0
+        Total params: 4,816
+        Trainable params: 4,816
         Non-trainable params: 0
-
-- Total parameters - 4328
+    **Total params: 4,816**
 
 
 ### **Training results**
