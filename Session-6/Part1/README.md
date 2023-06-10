@@ -13,8 +13,8 @@ Below steps show the weight updation process using backpropagation
 
 **STEP 1**
 
-        h1 = w1*i1 + w2*i2		     # 1) first we calculate the h1 neuron value using weights w1 w2 and inputs i1, i2
-        h2 = w3*i1 + w4*i2		     # 2) then we calculate the h2 neuron value using weights w3 w4 and inputs i1, i2
+        h1 = w1*i1 + w2*i2		            # 1) first we calculate the h1 neuron value using weights w1 w2 and inputs i1, i2
+        h2 = w3*i1 + w4*i2		            # 2) then we calculate the h2 neuron value using weights w3 w4 and inputs i1, i2
         a_h1 = σ(h1) = 1/(1 + exp(-h1))	     # 3) next we calculate the activated h1 neuron value which is sigmoid of h1 neuron
         a_h2 = σ(h2)		             # 4) similarly activated h2 neuron is calculated using sigmoid of h2 neuron
         o1 = w5*a_h1 + w6*a_h2		     # 5) we next derive o1 using weights w5, w6 and inputs ah1, ah2
