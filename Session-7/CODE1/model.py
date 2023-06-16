@@ -59,7 +59,7 @@ class ModelTraining():
 
             # Calculate loss
             loss = F.nll_loss(y_pred, target)
-            self.train_losses.append(loss)
+            
 
             # Backpropagation
             loss.backward()
@@ -72,6 +72,8 @@ class ModelTraining():
             processed += len(data)
 
             pbar.set_description(desc= f'Loss={loss.item()} Batch_id={batch_idx} Accuracy={100*correct/processed:0.2f}')
+
+            self.train_losses.append(loss.cpu().detach().numpy())
             self.train_acc.append(100*correct/processed)
 
 
@@ -88,12 +90,12 @@ class ModelTraining():
                 correct += pred.eq(target.view_as(pred)).sum().item()
 
         test_loss /= len(test_loader.dataset)
-        self.test_losses.append(test_loss)
 
         print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)\n'.format(
             test_loss, correct, len(test_loader.dataset),
             100. * correct / len(test_loader.dataset)))
         
+        self.test_losses.append(test_loss)
         self.test_acc.append(100. * correct / len(test_loader.dataset))
 
   
@@ -102,13 +104,13 @@ class ModelTraining():
     # CODE BLOCK 9 Loss/Accuract plot
     def plot_loss_accuracy(self):
           fig, axs = plt.subplots(2,2,figsize=(15,10))
-          axs[0, 0].plot(self.train_losses.cpu())
+          axs[0, 0].plot(self.train_losses)
           axs[0, 0].set_title("Training Loss")
-          axs[1, 0].plot(self.train_acc.cpu())
+          axs[1, 0].plot(self.train_acc)
           axs[1, 0].set_title("Training Accuracy")
-          axs[0, 1].plot(self.test_losses.cpu())
+          axs[0, 1].plot(self.test_losses)
           axs[0, 1].set_title("Test Loss")
-          axs[1, 1].plot(self.test_acc.cpu())
+          axs[1, 1].plot(self.test_acc)
           axs[1, 1].set_title("Test Accuracy")
 
 
