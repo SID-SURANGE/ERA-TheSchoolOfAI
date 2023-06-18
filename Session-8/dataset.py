@@ -3,7 +3,9 @@
 import torch
 from torchvision import datasets, transforms
 
-from transforms import Mnist_transforms
+from transforms import Transforms
+
+get_transform = Transforms()
 
 class Dataset():
     """
@@ -14,10 +16,10 @@ class Dataset():
         self.batch_size = batch_size
         self.kwargs = {'batch_size': batch_size, 'shuffle': True, 'num_workers': 2, 'pin_memory': True}
 
-        self.train_transforms, _ = Mnist_transforms()
+        self.train_transforms, _ = get_transform.Mnist_transforms()
 
         # Test data transformations
-        _ , self.test_transforms = Mnist_transforms()
+        _ , self.test_transforms = get_transform.Mnist_transforms()
 
     def train_loader(self):
         train = datasets.MNIST('../data', train=True, download=True, transform=self.train_transforms)
