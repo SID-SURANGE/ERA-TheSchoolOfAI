@@ -10,7 +10,7 @@ class Transforms():
         self.transform_list = tranforms_list
         self.dataset = dataset
 
-    def Mnist_transforms():
+    def Mnist_transforms(self):
 
         train_transforms = transforms.Compose([
                 transforms.RandomApply([transforms.CenterCrop(22), ], p=0.1),
