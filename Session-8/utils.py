@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
-
+from torchvision.utils import make_grid
 
 class Utility():
     """
@@ -38,6 +38,13 @@ class Utility():
             plt.axis('off')
             plt.imshow(batch_data[index].numpy().squeeze(), cmap='gray_r')
 
+
+    def show_batch(self,dl):
+        for images, labels in dl:
+            fig, ax = plt.subplots(figsize=(12, 6))
+            ax.set_xticks([]); ax.set_yticks([])
+            ax.imshow(make_grid(images, nrow=16).permute(1, 2, 0))
+            break
 
     def GetCorrectPredCount(self, pPrediction, pLabels):
       return pPrediction.argmax(dim=1).eq(pLabels).sum().item()

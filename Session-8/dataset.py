@@ -5,36 +5,40 @@ from torchvision import datasets, transforms
 
 from transforms import Transforms
 
-get_transform = Transforms([],'mnist')
+get_transform = Transforms()
+
 
 class Dataset():
     """
     This class defines the train/test transforms for our CNN model for MNIST dataset
     """
-    def __init__(self, batch_size, dataset_type):
+    def __init__(self, batch_size):
         
         self.batch_size = batch_size
         self.kwargs = {'batch_size': batch_size, 'shuffle': True, 'num_workers': 2, 'pin_memory': True}
 
-        # MNIST or CIFAR or others
-        self.dataset_type = dataset_type
-
-        self.train_transforms, _ = get_transform.Mnist_transforms()
+        # train data tranforms
+        self.train_transforms = get_transform.train_transforms()
 
         # Test data transformations
-        _ , self.test_transforms = get_transform.Mnist_transforms()
+        self.test_transforms = get_transform.test_transforms()
 
 
-    def train_test_loader(self):
+    def train_loader(self):
+        """
+        Train loader for the dataset
+        """
 
-        if self.dataset_type == 'MNIST':
-            train = datasets.MNIST('../data', train=True, download=True, transform=self.train_transforms)
-            test = datasets.MNIST('../data', train=False, download=True, transform=self.test_transforms)
-            
-            return torch.utils.data.DataLoader(train, **self.kwargs), torch.utils.data.DataLoader(test, **self.kwargs)
+        train = datasets.CIFAR10('../data', train=True, download=True, transform=self.train_transforms)
         
-        if self.dataset_type == 'CIFAR10':
-            train = datasets.CIFAR10('../data', train=True, download=True, transform=self.train_transforms)
-            test = datasets.CIFAR10('../data', train=False, download=True, transform=self.test_transforms)
+        return torch.utils.data.DataLoader(train, **self.kwargs)
+        
 
-            return torch.utils.data.DataLoader(train, **self.kwargs), torch.utils.data.DataLoader(test, **self.kwargs)
+    def test_loader(self):
+        """
+        Test loader for the dataset
+        """
+
+        test = datasets.CIFAR10('../data', train=False, download=True, transform=self.test_transforms)
+        
+        return torch.utils.data.DataLoader(test, **self.kwargs)
