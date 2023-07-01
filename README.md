@@ -29,4 +29,6 @@ Below are the details for using the code<br />
 - Using in Colab
     1. Load the .ipynb file into colab, the model.py and utils.py also
     2. Connect the colab to a GPU enabled runtime
-    3. Now just run the notebook and play around             
+    3. Now just run the notebook and play around
+ 
+<hr>
