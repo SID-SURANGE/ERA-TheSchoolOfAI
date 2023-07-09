@@ -1,5 +1,7 @@
-<h3><b> Session 8 </h3>
+<h3><b> Session 10 </h3>
 
+<p> To be updated......... </p>
+    
 <h3><i><b>Normalization and Regularization</b></i></h2>
 
 
