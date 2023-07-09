@@ -22,11 +22,13 @@ The repository presents the assignments for all the sessions covered as part of 
 Below are the details for using the code<br />
 
 - Clone the repository
-- Using in Local
+- Using in Local -
     1. Check if system has dedicated graphics card to support GPU training
     2. Verify python > 3.9 environment exist with support for Jupyter notebook, Pytorch
     3. If all exists, open the notebook and run the cells in order
-- Using in Colab
+- Using in Colab -
     1. Load the .ipynb file into colab, the model.py and utils.py also
     2. Connect the colab to a GPU enabled runtime
-    3. Now just run the notebook and play around             
+    3. Now just run the notebook and play around
+ 
+<hr>

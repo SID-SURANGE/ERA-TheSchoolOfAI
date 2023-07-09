@@ -16,7 +16,7 @@
 
 3. You are making 3 versions of the above code (in each case achieve above 70% accuracy):
     -    Network with Group Normalization
-    -    Network with Layer Normalization
+    -    Network with Layer Normalization (To be implemeneted)
     -    Network with Batch Normalization
 
 
