@@ -3,10 +3,7 @@
 import torch
 from torchvision import datasets, transforms
 
-from transforms import Transforms
-
-get_transform = Transforms()
-
+from transforms import *
 
 class Dataset():
     """
@@ -18,10 +15,10 @@ class Dataset():
         self.kwargs = {'batch_size': batch_size, 'shuffle': True, 'num_workers': 2, 'pin_memory': True}
 
         # train data tranforms
-        self.train_transforms = get_transform.train_transforms()
+        self.train_transforms = albumentation()
 
         # Test data transformations
-        self.test_transforms = get_transform.test_transforms()
+        self.test_transforms = albumentation_test()
 
 
     def train_loader(self):

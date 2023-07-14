@@ -1,49 +1,62 @@
 <h3><b> Session 10 </h3>
-
-<p> To be updated......... </p>
     
-<h3><i><b>Normalization and Regularization</b></i></h2>
+<h3><i><b>Residual Connections in CNNs and One Cycle Policy! </b></i></h2>
 
 
 ---
 
 
 **Target:**
-1. Change the dataset to CIFAR10
-2. Make this network:
-    -   C1 C2 c3 P1 C3 C4 C5 c6 P2 C7 C8 C9 GAP C10
-    -   Keep the parameter count less than 50000
-    -   Try and add one layer to another
-    -   Max Epochs is 20
 
-3. You are making 3 versions of the above code (in each case achieve above 70% accuracy):
-    -    Network with Group Normalization
-    -    Network with Layer Normalization
-    -    Network with Batch Normalization
+        Write a custom Links to an external site. ResNet architecture for CIFAR10 that has the following architecture:
+
+        PrepLayer - Conv 3x3 s1, p1) >> BN >> RELU [64k]
+        Layer1 -
+            X = Conv 3x3 (s1, p1) >> MaxPool2D >> BN >> RELU [128k]
+            R1 = ResBlock( (Conv-BN-ReLU-Conv-BN-ReLU))(X) [128k] 
+            Add(X, R1)
+        Layer 2 -
+            Conv 3x3 [256k]
+            MaxPooling2D
+            BN
+            ReLU
+        Layer 3 -
+            X = Conv 3x3 (s1, p1) >> MaxPool2D >> BN >> RELU [512k]
+            R2 = ResBlock( (Conv-BN-ReLU-Conv-BN-ReLU))(X) [512k]
+            Add(X, R2)
+        MaxPooling with Kernel Size 4
+        FC Layer 
+        SoftMax
+        
+        Uses One Cycle Policy such that:
+            Total Epochs = 24
+            Max at Epoch = 5
+            LRMIN = FIND
+            LRMAX = FIND
+            NO Annihilation
+        Uses this transform -RandomCrop 32, 32 (after padding of 4) >> FlipLR >> Followed by CutOut(8, 8)
+        Batch size = 512
+        Use ADAM, and CrossEntropyLoss
+        Target Accuracy: 90%
 
 
 
 **Model details**
-1. Model params - 38568 
-2. Optimizer - SGD with L2 regularization 
-3. Variable LR - StepLR
+1. Model params - 4,065,728 
+2. Optimizer - Adam with L2 regularization 
+3. Variable LR - MultiStepLR
 4. Epochs - 15
-5. Batch Size - 64 
+5. Batch Size - 128, 512(Not supported by local machine while running) 
 
 
 
 **Results**
 1. Model with Batch Norm
-    - Train Accuracy - 79.12%
-    - Test Accuracy - 79.78%
-    - Accuracy/Loss plot - ![kkdm](./images/BatchNorm_Accplot.png)
-    - Misclassifications plot - ![kkdm](./images/BatchNorm_Misclassified.png)
+    - Train Accuracy - 89.19%
+    - Test Accuracy - 90.72%
+    - Accuracy/Loss plot - ![kkdm](./images/Acc_Plot.png)
+    - Misclassifications plot - ![kkdm](./images/Mis-predictions.png)
 
-2. Model with Group Norm
-    - Train Accuracy - 73.97%
-    - Test Accuracy - 74.33%
-    - Accuracy/Loss plot - ![kkdm](./images/GroupNorm_Accplot.png)
-    - Misclassifications plot - ![kkdm](./images/GroupNorm_Misclassified.png)
 
 
 ---
