@@ -10,8 +10,8 @@ The repository presents the assignments for all the sessions covered as part of 
 
 - **Session 1-4** - Introduction to AI and Python revisit
 - **Session 5** - Introduction to PyTorch 
-- **Session 6** - Backpropagation and Advanced Architectures 
-- **Session 7** - In-Depth Coding Practice 
+- **Session 6** - Backpropagation and Advanced Architecture
+- **Session 7** - In-depth Coding Practice 
 - **Session 8** - Batch Normalization & Regularization 
 - **Session 9** - Data Augmentation and Visualization 
 - **Session 10** - PyTorch Lightning and AI Application Development 
